@@ -1,0 +1,26 @@
+gcc -D_POSIX_C_SOURCE=200809L -I. -std=c11 -Wall -Wextra -Wpedantic -Werror -O2 -c client.c -o client.o
+./tests/test_common
+PASS 01: ports: boundaries, default, invalid input and overflow
+PASS 02: words: trimming, uppercase, five ASCII letters and invalid guesses
+PASS 03: protocol: exact commands, both aliases, WORD payload and ERROR reason
+PASS 04: short sends and EINTR: all bytes and exactly one newline arrive
+PASS 05: send validation: invalid frames send no bytes; bad arguments fail
+PASS 06: broken peer: failure is returned without terminating on SIGPIPE
+PASS 07: fragmented receives and EINTR: wait for the complete line
+PASS 08: coalesced receives: preserve the next two messages in the reader
+PASS 09: mixed receives: retain a partial next frame until its newline
+PASS 10: frame boundary: 127 text bytes plus LF fit with a local NUL
+PASS 11: overlong frame: reject and keep reader terminal
+PASS 12: small output buffer: fail safely rather than truncate a command
+PASS 13: framing errors: embedded NUL, CR, tab and non-ASCII byte
+PASS 14: clean EOF: a disconnect between messages is detected
+PASS 15: truncated frame: EOF before LF is not a complete HELLO
+PASS 16: configured socket timeout: incomplete data is not accepted
+PASS 17: receiver errors: invalid socket and invalid arguments
+PASS 18: empty line: complete framing, but not a valid protocol command
+PASS 19: per-connection buffers: two independent readers do not mix messages
+PASS 20: large send: a separate receiver verifies every byte of 512 KiB
+PASS 21: two-endpoint library exchange: greeting, word, replay alias, quit alias
+
+All 21 test cases passed (278 checks).
+gcc  -o client client.o -L. -lwordle 
