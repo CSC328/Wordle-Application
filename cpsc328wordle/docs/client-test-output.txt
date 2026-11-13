@@ -1,0 +1,32 @@
+test_alphabet_when_all_letters_have_been_guessed (__main__.ClientTests.test_alphabet_when_all_letters_have_been_guessed) ... ok
+test_arguments (__main__.ClientTests.test_arguments) ... ok
+test_board_alphabet_and_hidden_answer (__main__.ClientTests.test_board_alphabet_and_hidden_answer) ... ok
+test_buffered_unexpected_reply_is_not_ignored (__main__.ClientTests.test_buffered_unexpected_reply_is_not_ignored) ... ok
+test_closed_stdin_does_not_become_socket_input (__main__.ClientTests.test_closed_stdin_does_not_become_socket_input) ... ok
+test_connection_refused (__main__.ClientTests.test_connection_refused) ... ok
+test_custom_port_with_leading_zeroes (__main__.ClientTests.test_custom_port_with_leading_zeroes) ... ok
+test_default_port_and_hostname (__main__.ClientTests.test_default_port_and_hostname) ... ok
+test_design_feedback_and_local_guesses (__main__.ClientTests.test_design_feedback_and_local_guesses) ... ok
+test_disconnect_or_error_while_waiting_for_input (__main__.ClientTests.test_disconnect_or_error_while_waiting_for_input) ... ok
+test_eof_after_final_line_without_newline (__main__.ClientTests.test_eof_after_final_line_without_newline) ... ok
+test_eof_during_guess_or_replay (__main__.ClientTests.test_eof_during_guess_or_replay) ... ok
+test_fragmented_replies (__main__.ClientTests.test_fragmented_replies) ... ok
+test_hostname_error (__main__.ClientTests.test_hostname_error) ... ok
+test_invalid_guesses_do_not_use_attempts (__main__.ClientTests.test_invalid_guesses_do_not_use_attempts) ... ok
+test_invalid_ports (__main__.ClientTests.test_invalid_ports) ... ok
+test_invalid_replay_answers (__main__.ClientTests.test_invalid_replay_answers) ... ok
+test_ipv6_when_available (__main__.ClientTests.test_ipv6_when_available) ... ok
+test_loss_after_six_guesses (__main__.ClientTests.test_loss_after_six_guesses) ... ok
+test_malformed_frames_and_payloads (__main__.ClientTests.test_malformed_frames_and_payloads) ... ok
+test_player_can_wait_without_an_idle_timeout (__main__.ClientTests.test_player_can_wait_without_an_idle_timeout) ... ok
+test_quit_command_during_guess_or_replay (__main__.ClientTests.test_quit_command_during_guess_or_replay) ... ok
+test_repeated_letters (__main__.ClientTests.test_repeated_letters) ... ok
+test_replay_resets_round_on_same_connection (__main__.ClientTests.test_replay_resets_round_on_same_connection) ... ok
+test_server_error_and_maximum_frame (__main__.ClientTests.test_server_error_and_maximum_frame) ... ok
+test_win_on_sixth_guess (__main__.ClientTests.test_win_on_sixth_guess) ... ok
+test_wrong_message_direction_or_state (__main__.ClientTests.test_wrong_message_direction_or_state) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 1.864s
+
+OK
