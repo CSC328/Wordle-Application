@@ -1,0 +1,4 @@
+gcc -D_POSIX_C_SOURCE=200809L -I. -std=c11 -Wall -Wextra -Wpedantic -Werror -g -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -c client.c -o client.o
+gcc -D_POSIX_C_SOURCE=200809L -I. -std=c11 -Wall -Wextra -Wpedantic -Werror -g -O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -c wordle_common.c -o wordle_common.o
+ar rcs libwordle.a wordle_common.o
+gcc -fsanitize=address,undefined -no-pie -o client client.o -L. -lwordle 
