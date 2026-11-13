@@ -1,0 +1,7 @@
+*.o
+*.a
+/client
+/server
+/tests/test_common
+/tests/test_common_sanitize
+*.zip
