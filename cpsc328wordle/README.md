@@ -190,9 +190,8 @@ Stopping the game server first leaves the default port available to the client
 test harness. The Python suite uses a local test peer; real client/server
 integration was checked separately.
 
-Cherry supplied the final acad terminal results from
-`K120024CHIP.kutztown.edu` on November 22, 2026, using application commit
-`81f567241544fa1c987ca5fe6e016194804a3674`.
+The final acad terminal results supplied by Cherry on November 22, 2026,
+used application commit `81f567241544fa1c987ca5fe6e016194804a3674`.
 
 | Check | Recorded result |
 | --- | --- |
@@ -203,10 +202,10 @@ Cherry supplied the final acad terminal results from
 | Concurrent sessions and cleanup | Two overlapping clients, independent games, continued play after another client quit, child reaping and shutdown with active clients passed |
 | Startup errors | Invalid client/server ports and missing/empty bank checks passed |
 
-See [Task 3 test record](docs/TASK3_RESULTS.md) for inputs, expected/actual
-results, process IDs, the final verification timestamp and evidence filenames.
+See [Task 3 test summary](docs/TASK3_TEST_SUMMARY.md) for inputs,
+expected/actual results, final regression counts and testing limits.
 Earlier handoff and component-status documents describe earlier project stages;
-this README and the Task 3 record describe the integrated application.
+this README and the Task 3 summary describe the integrated application.
 
 ## Known issues and limits
 
@@ -218,8 +217,8 @@ this README and the Task 3 record describe the integrated application.
 - Some manual connection attempts during stop/restart steps failed with
   Connection refused; one earlier localhost attempt reported Cannot assign
   requested address. The exact cause of each attempt was not isolated.
-  Later connections and the recorded acceptance checks succeeded. Full
-  observations are retained in the Task 3 record.
+  Later connections and the recorded acceptance checks succeeded. Connection
+  observations are retained in the Task 3 summary.
 - Random selection may choose the same word again. A one-word test bank always
   returns that word.
 - The executed IPv4 acceptance checks showed no reproducible gameplay defect.
