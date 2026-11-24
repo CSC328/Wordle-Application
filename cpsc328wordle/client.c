@@ -7,40 +7,35 @@
  * Professor:     Reiley Walther
  * Assignment:    Group 17 Wordle Application, client tasks 2.5-2.8
  * Filename:      client.c
- * Purpose:       Connect to the word server and run the local Wordle game.
+ * Purpose:       This program connects to a Wordle server and allows the user to play the game
  * Compile:       make client
  * Usage:         ./client hostname [port]
  *
  * Citations
  * [1] R. Walther, modified from L. Frye. "CLAs.c." Date not listed.
- *     P-5.zip: examples/CLAs.c.
+ *     source.zip: examples/CLAs.c.
  *     Retrieved: November 12, 2026 from Prof. Reiley Walther's provided
  *     CPSC 328 class files. Used for argc/argv and usage-message structure.
  * [2] Dr. Lisa Frye. "client_allAddrs.c." Modified September 1, 2021.
- *     P-5.zip: examples/sockets/sum/client_allAddrs.c.
+ *     source.zip: examples/sockets/sum/client_allAddrs.c.
  *     Retrieved: November 12, 2026 from the same class files.
  *     Used for getaddrinfo, trying addresses, socket, connect and close.
  * [3] W. Richard Stevens, Bill Fenner and Andrew M. Rudoff. "utils.c,"
  *     readline(), from UNIX Network Programming, Volume 1, Third Edition.
  *     Documentation modified by Dr. Lisa Frye, October 2017.
- *     P-5.zip: examples/sockets/sum/utils.c.
+ *     source.zip: examples/sockets/sum/utils.c.
  *     Retrieved: November 12, 2026 from the same class files.
  *     Used for the byte-at-a-time line-input and EOF pattern.
  * [4] "daytimed.c." Author and date not listed in the provided file.
- *     P-5.zip: examples/sockets/UDPtimed/daytimed.c.
+ *     source.zip: examples/sockets/UDPtimed/daytimed.c.
  *     Retrieved: November 12, 2026 from the same class files.
  *     Used for FD_ZERO, FD_SET, select and FD_ISSET on two descriptors.
  * [5] Charanya Ananthula. Group 17 shared-library handoff, November 2026.
  *     wordle_common.h, wordle_common.c and HANDOFF.md, tasks 2.1-2.4.
  *     Used unchanged for validation and complete protocol messages.
- *
- * Game behavior follows the submitted design, sections 5, 6, 8 and 9.1.
- * Scoring, board, alphabet and replay are project-specific client code.
- * See docs/CLIENT_SOURCES.md for the source-to-code mapping.
  *************************************************************************/
 
 #include "wordle_common.h"
-
 #include <ctype.h>
 #include <errno.h>
 #include <netdb.h>
@@ -114,22 +109,22 @@ static int receive_message(LineReader *reader, WordleMessage *message)
     if (result != RECV_LINE_OK) {
         switch (result) {
         case RECV_LINE_EOF:
-            fprintf(stderr, "Server disconnected.\n");
+            fprintf(stderr, "Failled: Server disconnected.\n");
             break;
         case RECV_LINE_TRUNCATED:
-            fprintf(stderr, "Server disconnected during a message.\n");
+            fprintf(stderr, "Failled: Server disconnected during a message.\n");
             break;
         case RECV_LINE_BAD_FRAME:
-            fprintf(stderr, "Server sent an invalid message frame.\n");
+            fprintf(stderr, "Failled: Server sent an invalid message frame.\n");
             break;
         case RECV_LINE_TOO_LONG:
-            fprintf(stderr, "Server message is too long.\n");
+            fprintf(stderr, "Failled: Server message is too long.\n");
             break;
         case RECV_LINE_TIMEOUT:
             fprintf(stderr, "Receiving from the server timed out.\n");
             break;
         case RECV_LINE_NO_SPACE:
-            fprintf(stderr, "Server message does not fit the receive buffer.\n");
+            fprintf(stderr, "Failled: Server message does not fit the receive buffer.\n");
             break;
         default:
             perror("Cannot receive from server");
@@ -138,11 +133,11 @@ static int receive_message(LineReader *reader, WordleMessage *message)
         return -1;
     }
     if (parse_message(line, message) == -1) {
-        fprintf(stderr, "Server sent an invalid protocol message.\n");
+        fprintf(stderr, "Failled: Server sent an invalid protocol message.\n");
         return -1;
     }
     if (message->type == MSG_ERROR) {
-        fprintf(stderr, "Server error: %s\n", message->reason);
+        fprintf(stderr, "Failled: Server error: %s\n", message->reason);
         return -1;
     }
     return 0;
